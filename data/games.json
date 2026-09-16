@@ -23,6 +23,18 @@
     "description": "Bootleg clone of KOF 2002 with altered moves. Needs the kof2002 parent set."
   },
   {
+    "slug": "the-king-of-fighters-2002-magic-plus-ii",
+    "title": "The King of Fighters 2002 Magic Plus II (bootleg)",
+    "system": "neogeo",
+    "rom": "kf2k2mp2.zip",
+    "parentRom": "kof2002.zip",
+    "year": 2002,
+    "publisher": "bootleg",
+    "genres": ["Fighting"],
+    "players": 2,
+    "description": "Bootleg hack of KOF 2002 with faster gameplay and powered-up special moves. Needs the kof2002 parent set."
+  },
+  {
     "slug": "metal-slug-x",
     "title": "Metal Slug X",
     "system": "neogeo",

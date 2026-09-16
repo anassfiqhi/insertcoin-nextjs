@@ -9,7 +9,12 @@ export interface EjsGlobals {
   EJS_gameUrl: string;
   EJS_gameName: string;
   EJS_pathtodata: string;
-  EJS_gameParentUrl?: string;
+  /**
+   * Files written to the emulator filesystem as-is, keyed by path. Used for
+   * arcade parent sets: `EJS_gameParentUrl` unpacks the archive into loose
+   * chips, but FBNeo/MAME need the parent zip itself next to the game zip.
+   */
+  EJS_externalFiles?: Record<string, string>;
   EJS_biosUrl?: string;
   EJS_color?: string;
   EJS_threads?: boolean;
@@ -33,9 +38,14 @@ export interface EmulatorJSInstance {
   displayMessage?(message: string, time?: number): void;
 }
 
+interface EjsGameManagerClass {
+  prototype: { writeFile(path: string, data: unknown): void };
+}
+
 declare global {
   interface Window extends Partial<EjsGlobals> {
     EJS_emulator?: EmulatorJSInstance;
+    EJS_GameManager?: EjsGameManagerClass;
     EJS_ready?: () => void;
     EJS_onGameStart?: () => void;
     EJS_onSaveState?: (event: EjsSaveStateEvent) => void;
@@ -49,7 +59,7 @@ const GLOBAL_KEYS = [
   "EJS_gameUrl",
   "EJS_gameName",
   "EJS_pathtodata",
-  "EJS_gameParentUrl",
+  "EJS_externalFiles",
   "EJS_biosUrl",
   "EJS_color",
   "EJS_threads",
@@ -76,6 +86,32 @@ export function injectEjsLoader(dataPath: string): Promise<void> {
   });
 }
 
+const patchedWriteFile = Symbol("insertcoin.patchedWriteFile");
+
+/**
+ * Works around an EmulatorJS 4.2.3 bug: `EJS_externalFiles` downloads are
+ * passed to Emscripten's `FS.writeFile` as an `ArrayBuffer`, which only accepts
+ * a typed array, so every external file is written with 0 bytes. The patch
+ * wraps the buffer in a `Uint8Array` and does nothing once upstream passes a
+ * typed array.
+ */
+export function patchEjsExternalFileWrites(): void {
+  const proto = window.EJS_GameManager?.prototype as
+    | (EjsGameManagerClass["prototype"] & { [patchedWriteFile]?: true })
+    | undefined;
+  if (!proto || proto[patchedWriteFile]) return;
+
+  const original = proto.writeFile;
+  proto.writeFile = function (path, data) {
+    original.call(
+      this,
+      path,
+      data instanceof ArrayBuffer ? new Uint8Array(data) : data,
+    );
+  };
+  proto[patchedWriteFile] = true;
+}
+
 export type EjsMessage =
   | { type: "started" }
   | { type: "save-state"; state: Uint8Array }
@@ -88,12 +124,16 @@ export type EjsMessage =
  */
 export function createEjsChannel() {
   return eventChannel<EjsMessage>((emit) => {
+    // "ready" fires once the EmulatorJS scripts are loaded, before the start
+    // click creates the game manager and writes the external files.
+    window.EJS_ready = patchEjsExternalFileWrites;
     window.EJS_onGameStart = () => emit({ type: "started" });
     window.EJS_onSaveState = (event) =>
       emit({ type: "save-state", state: event.state });
     window.EJS_onLoadState = () => emit({ type: "load-state" });
 
     return () => {
+      delete window.EJS_ready;
       delete window.EJS_onGameStart;
       delete window.EJS_onSaveState;
       delete window.EJS_onLoadState;

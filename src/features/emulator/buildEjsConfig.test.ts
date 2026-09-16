@@ -25,7 +25,7 @@ describe("buildEjsConfig", () => {
       EJS_player: "#p",
       EJS_core: "arcade",
       EJS_gameUrl: "/roms/neogeo/kf2k2plc.zip",
-      EJS_gameParentUrl: "/roms/neogeo/kof2002.zip",
+      EJS_externalFiles: { "/kof2002.zip": "/roms/neogeo/kof2002.zip" },
       EJS_biosUrl: "/bios/neogeo/neogeo.7z",
       EJS_gameName: "kof2002-plus",
       EJS_pathtodata: "https://cdn.emulatorjs.org/stable/data/",
@@ -66,7 +66,7 @@ describe("buildEjsConfig", () => {
     });
 
     expect(globals.EJS_core).toBe("snes");
-    expect(globals.EJS_gameParentUrl).toBeUndefined();
+    expect(globals.EJS_externalFiles).toBeUndefined();
     expect(globals.EJS_biosUrl).toBeUndefined();
     expect(files).toHaveLength(1);
   });

@@ -7,7 +7,7 @@ const quote = (files) => files.map((file) => JSON.stringify(file)).join(" ");
 const perFileOr = (files, perFile, wholeProject) =>
   files.length > MAX_FILES ? wholeProject : perFile(quote(files));
 
-export default {
+const config = {
   "*.{ts,tsx,mts,mjs}": (files) =>
     perFileOr(
       files,
@@ -19,3 +19,5 @@ export default {
       "prettier --write .",
     ]),
 };
+
+export default config;

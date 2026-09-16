@@ -82,6 +82,8 @@ export function buildEjsConfig({
   const urlOf = (kind: RequiredFile["kind"]) =>
     files.find((file) => file.kind === kind)?.url;
 
+  const parentUrl = urlOf("parent");
+
   return {
     files,
     globals: {
@@ -90,7 +92,11 @@ export function buildEjsConfig({
       EJS_gameUrl: urlOf("rom") ?? "",
       EJS_gameName: game.slug,
       EJS_pathtodata: env.NEXT_PUBLIC_EJS_DATA_PATH,
-      EJS_gameParentUrl: urlOf("parent"),
+      // The game zip is written to "/", so the parent set goes right beside it.
+      EJS_externalFiles:
+        game.parentRom && parentUrl
+          ? { [`/${game.parentRom}`]: parentUrl }
+          : undefined,
       EJS_biosUrl: urlOf("bios"),
       EJS_color: system.accent,
       EJS_threads: env.NEXT_PUBLIC_EJS_THREADS || undefined,
