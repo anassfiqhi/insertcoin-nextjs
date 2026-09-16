@@ -1,0 +1,534 @@
+[
+  {
+    "slug": "the-king-of-fighters-2002",
+    "title": "The King of Fighters 2002",
+    "system": "neogeo",
+    "rom": "kof2002.zip",
+    "year": 2002,
+    "publisher": "Playmore",
+    "genres": ["Fighting"],
+    "players": 2,
+    "description": "Team-based 3-on-3 fighting with the MAX mode system and a huge roster from across the series."
+  },
+  {
+    "slug": "the-king-of-fighters-2002-plus",
+    "title": "The King of Fighters 2002 Super (bootleg)",
+    "system": "neogeo",
+    "rom": "kf2k2plc.zip",
+    "parentRom": "kof2002.zip",
+    "year": 2002,
+    "publisher": "bootleg",
+    "genres": ["Fighting"],
+    "players": 2,
+    "description": "Bootleg clone of KOF 2002 with altered moves. Needs the kof2002 parent set."
+  },
+  {
+    "slug": "metal-slug-x",
+    "title": "Metal Slug X",
+    "system": "neogeo",
+    "rom": "mslugx.zip",
+    "year": 1999,
+    "publisher": "SNK",
+    "genres": ["Run and gun", "Action"],
+    "players": 2,
+    "description": "Remixed version of Metal Slug 2 with new weapons, enemies and less slowdown."
+  },
+  {
+    "slug": "garou-mark-of-the-wolves",
+    "title": "Garou: Mark of the Wolves",
+    "system": "neogeo",
+    "rom": "garou.zip",
+    "year": 1999,
+    "publisher": "SNK",
+    "genres": ["Fighting"],
+    "players": 2,
+    "description": "The Fatal Fury series reinvented with Just Defend and T.O.P. mechanics."
+  },
+  {
+    "slug": "samurai-shodown-ii",
+    "title": "Samurai Shodown II",
+    "system": "neogeo",
+    "rom": "samsho2.zip",
+    "year": 1994,
+    "publisher": "SNK",
+    "genres": ["Fighting"],
+    "players": 2,
+    "description": "Weapon-based fighting with rage gauges and deadly slashes."
+  },
+
+  {
+    "slug": "street-fighter-ii-champion-edition",
+    "title": "Street Fighter II': Champion Edition",
+    "system": "cps",
+    "rom": "sf2ce.zip",
+    "year": 1992,
+    "publisher": "Capcom",
+    "genres": ["Fighting"],
+    "players": 2,
+    "description": "The four boss characters become playable and mirror matches are allowed."
+  },
+  {
+    "slug": "marvel-vs-capcom",
+    "title": "Marvel vs. Capcom: Clash of Super Heroes",
+    "system": "cps",
+    "rom": "mvsc.zip",
+    "year": 1998,
+    "publisher": "Capcom",
+    "genres": ["Fighting"],
+    "players": 2,
+    "description": "Tag-team crossover fighter with assists and hyper combos."
+  },
+  {
+    "slug": "cadillacs-and-dinosaurs",
+    "title": "Cadillacs and Dinosaurs",
+    "system": "cps",
+    "rom": "dino.zip",
+    "year": 1993,
+    "publisher": "Capcom",
+    "genres": ["Beat 'em up"],
+    "players": 3,
+    "description": "Three-player brawler set in a post-apocalyptic world full of dinosaurs."
+  },
+
+  {
+    "slug": "pac-man",
+    "title": "Pac-Man",
+    "system": "mame",
+    "rom": "pacman.zip",
+    "year": 1980,
+    "publisher": "Namco",
+    "genres": ["Maze"],
+    "players": 2,
+    "description": "Eat every dot and avoid Blinky, Pinky, Inky and Clyde."
+  },
+  {
+    "slug": "galaga",
+    "title": "Galaga",
+    "system": "mame",
+    "rom": "galaga.zip",
+    "year": 1981,
+    "publisher": "Namco",
+    "genres": ["Shooter"],
+    "players": 2,
+    "description": "Fixed shooter where enemies can capture your ship to give you a dual fighter."
+  },
+  {
+    "slug": "donkey-kong",
+    "title": "Donkey Kong",
+    "system": "mame",
+    "rom": "dkong.zip",
+    "year": 1981,
+    "publisher": "Nintendo",
+    "genres": ["Platformer"],
+    "players": 2,
+    "description": "Jumpman climbs girders and dodges barrels to rescue Pauline."
+  },
+
+  {
+    "slug": "super-mario-bros-3",
+    "title": "Super Mario Bros. 3",
+    "system": "nes",
+    "rom": "super-mario-bros-3.nes",
+    "year": 1988,
+    "publisher": "Nintendo",
+    "genres": ["Platformer"],
+    "players": 2,
+    "description": "Eight worlds, a world map and power-ups like the Super Leaf and Tanooki Suit."
+  },
+  {
+    "slug": "the-legend-of-zelda",
+    "title": "The Legend of Zelda",
+    "system": "nes",
+    "rom": "the-legend-of-zelda.nes",
+    "year": 1986,
+    "publisher": "Nintendo",
+    "genres": ["Action-adventure"],
+    "players": 1,
+    "description": "Explore Hyrule and its dungeons to collect the Triforce of Wisdom."
+  },
+  {
+    "slug": "mega-man-2",
+    "title": "Mega Man 2",
+    "system": "nes",
+    "rom": "mega-man-2.nes",
+    "year": 1988,
+    "publisher": "Capcom",
+    "genres": ["Platformer", "Action"],
+    "players": 1,
+    "description": "Defeat eight Robot Masters in any order and take their weapons."
+  },
+
+  {
+    "slug": "super-metroid",
+    "title": "Super Metroid",
+    "system": "snes",
+    "rom": "super-metroid.sfc",
+    "year": 1994,
+    "publisher": "Nintendo",
+    "genres": ["Action-adventure"],
+    "players": 1,
+    "description": "Samus explores planet Zebes in the game that defined the Metroidvania."
+  },
+  {
+    "slug": "chrono-trigger",
+    "title": "Chrono Trigger",
+    "system": "snes",
+    "rom": "chrono-trigger.sfc",
+    "year": 1995,
+    "publisher": "Square",
+    "genres": ["RPG"],
+    "players": 1,
+    "description": "Time-travelling RPG with combo techs and multiple endings."
+  },
+  {
+    "slug": "super-street-fighter-ii-turbo-snes",
+    "title": "Super Street Fighter II",
+    "system": "snes",
+    "rom": "super-street-fighter-ii.sfc",
+    "year": 1994,
+    "publisher": "Capcom",
+    "genres": ["Fighting"],
+    "players": 2,
+    "description": "Home port with the four new challengers and a tournament mode."
+  },
+
+  {
+    "slug": "super-mario-64",
+    "title": "Super Mario 64",
+    "system": "n64",
+    "rom": "super-mario-64.z64",
+    "year": 1996,
+    "publisher": "Nintendo",
+    "genres": ["Platformer"],
+    "players": 1,
+    "description": "Mario's first 3D adventure across the paintings of Peach's castle."
+  },
+  {
+    "slug": "mario-kart-64",
+    "title": "Mario Kart 64",
+    "system": "n64",
+    "rom": "mario-kart-64.z64",
+    "year": 1996,
+    "publisher": "Nintendo",
+    "genres": ["Racing"],
+    "players": 4,
+    "description": "Kart racing and battle mode for up to four players."
+  },
+  {
+    "slug": "the-legend-of-zelda-ocarina-of-time",
+    "title": "The Legend of Zelda: Ocarina of Time",
+    "system": "n64",
+    "rom": "ocarina-of-time.z64",
+    "year": 1998,
+    "publisher": "Nintendo",
+    "genres": ["Action-adventure"],
+    "players": 1,
+    "description": "Link travels through time with Z-targeting combat and a lot of music."
+  },
+
+  {
+    "slug": "tetris-gb",
+    "title": "Tetris",
+    "system": "gb",
+    "rom": "tetris.gb",
+    "year": 1989,
+    "publisher": "Nintendo",
+    "genres": ["Puzzle"],
+    "players": 2,
+    "description": "The pack-in puzzle game that sold the Game Boy."
+  },
+  {
+    "slug": "links-awakening",
+    "title": "The Legend of Zelda: Link's Awakening",
+    "system": "gb",
+    "rom": "links-awakening.gb",
+    "year": 1993,
+    "publisher": "Nintendo",
+    "genres": ["Action-adventure"],
+    "players": 1,
+    "description": "Link washes up on Koholint Island and must wake the Wind Fish."
+  },
+  {
+    "slug": "kirbys-dream-land",
+    "title": "Kirby's Dream Land",
+    "system": "gb",
+    "rom": "kirbys-dream-land.gb",
+    "year": 1992,
+    "publisher": "Nintendo",
+    "genres": ["Platformer"],
+    "players": 1,
+    "description": "Kirby's debut: inhale enemies and float through Dream Land."
+  },
+
+  {
+    "slug": "pokemon-crystal",
+    "title": "Pokémon Crystal",
+    "system": "gbc",
+    "rom": "pokemon-crystal.gbc",
+    "year": 2000,
+    "publisher": "Nintendo",
+    "genres": ["RPG"],
+    "players": 1,
+    "description": "Johto adventure with a day-night cycle and the Battle Tower."
+  },
+  {
+    "slug": "wario-land-3",
+    "title": "Wario Land 3",
+    "system": "gbc",
+    "rom": "wario-land-3.gbc",
+    "year": 2000,
+    "publisher": "Nintendo",
+    "genres": ["Platformer"],
+    "players": 1,
+    "description": "Wario can't die but gets transformed, and he uses that to solve puzzles."
+  },
+  {
+    "slug": "shantae",
+    "title": "Shantae",
+    "system": "gbc",
+    "rom": "shantae.gbc",
+    "year": 2002,
+    "publisher": "Capcom",
+    "genres": ["Platformer", "Action-adventure"],
+    "players": 1,
+    "description": "A half-genie hero hair-whips her way across Sequin Land."
+  },
+
+  {
+    "slug": "metroid-fusion",
+    "title": "Metroid Fusion",
+    "system": "gba",
+    "rom": "metroid-fusion.gba",
+    "year": 2002,
+    "publisher": "Nintendo",
+    "genres": ["Action-adventure"],
+    "players": 1,
+    "description": "Samus is hunted by the SA-X aboard the BSL research station."
+  },
+  {
+    "slug": "advance-wars",
+    "title": "Advance Wars",
+    "system": "gba",
+    "rom": "advance-wars.gba",
+    "year": 2001,
+    "publisher": "Nintendo",
+    "genres": ["Strategy"],
+    "players": 4,
+    "description": "Turn-based tactics with commanders and their CO powers."
+  },
+  {
+    "slug": "golden-sun",
+    "title": "Golden Sun",
+    "system": "gba",
+    "rom": "golden-sun.gba",
+    "year": 2001,
+    "publisher": "Nintendo",
+    "genres": ["RPG"],
+    "players": 1,
+    "description": "Psynergy puzzles and Djinn-powered battles in Weyard."
+  },
+
+  {
+    "slug": "sonic-the-hedgehog-2",
+    "title": "Sonic the Hedgehog 2",
+    "system": "genesis",
+    "rom": "sonic-2.md",
+    "year": 1992,
+    "publisher": "Sega",
+    "genres": ["Platformer"],
+    "players": 2,
+    "description": "Sonic and Tails race Robotnik with the new Spin Dash."
+  },
+  {
+    "slug": "streets-of-rage-2",
+    "title": "Streets of Rage 2",
+    "system": "genesis",
+    "rom": "streets-of-rage-2.md",
+    "year": 1992,
+    "publisher": "Sega",
+    "genres": ["Beat 'em up"],
+    "players": 2,
+    "description": "Side-scrolling brawler known for Yuzo Koshiro's soundtrack."
+  },
+  {
+    "slug": "gunstar-heroes",
+    "title": "Gunstar Heroes",
+    "system": "genesis",
+    "rom": "gunstar-heroes.md",
+    "year": 1993,
+    "publisher": "Sega",
+    "genres": ["Run and gun"],
+    "players": 2,
+    "description": "Treasure's run and gun with combinable weapons and huge bosses."
+  },
+
+  {
+    "slug": "alex-kidd-in-miracle-world",
+    "title": "Alex Kidd in Miracle World",
+    "system": "sms",
+    "rom": "alex-kidd.sms",
+    "year": 1986,
+    "publisher": "Sega",
+    "genres": ["Platformer"],
+    "players": 1,
+    "description": "Punch blocks and win rock-paper-scissors matches across Radaxian."
+  },
+  {
+    "slug": "phantasy-star",
+    "title": "Phantasy Star",
+    "system": "sms",
+    "rom": "phantasy-star.sms",
+    "year": 1987,
+    "publisher": "Sega",
+    "genres": ["RPG"],
+    "players": 1,
+    "description": "Early sci-fi RPG with first-person 3D dungeons."
+  },
+  {
+    "slug": "wonder-boy-iii",
+    "title": "Wonder Boy III: The Dragon's Trap",
+    "system": "sms",
+    "rom": "wonder-boy-iii.sms",
+    "year": 1989,
+    "publisher": "Sega",
+    "genres": ["Action-adventure"],
+    "players": 1,
+    "description": "Cursed hero changes into animal forms to open new paths."
+  },
+
+  {
+    "slug": "sonic-triple-trouble",
+    "title": "Sonic Triple Trouble",
+    "system": "gamegear",
+    "rom": "sonic-triple-trouble.gg",
+    "year": 1994,
+    "publisher": "Sega",
+    "genres": ["Platformer"],
+    "players": 1,
+    "description": "Sonic and Tails chase the Chaos Emeralds against Fang and Knuckles."
+  },
+  {
+    "slug": "shinobi-ii",
+    "title": "Shinobi II: The Silent Fury",
+    "system": "gamegear",
+    "rom": "shinobi-ii.gg",
+    "year": 1992,
+    "publisher": "Sega",
+    "genres": ["Action"],
+    "players": 1,
+    "description": "Rescue four ninja, each with their own ability."
+  },
+  {
+    "slug": "columns-gg",
+    "title": "Columns",
+    "system": "gamegear",
+    "rom": "columns.gg",
+    "year": 1990,
+    "publisher": "Sega",
+    "genres": ["Puzzle"],
+    "players": 1,
+    "description": "Line up three matching jewels in falling columns."
+  },
+
+  {
+    "slug": "castlevania-symphony-of-the-night",
+    "title": "Castlevania: Symphony of the Night",
+    "system": "psx",
+    "rom": "castlevania-sotn.chd",
+    "year": 1997,
+    "publisher": "Konami",
+    "genres": ["Action-adventure"],
+    "players": 1,
+    "description": "Alucard explores Dracula's castle, and then an inverted one."
+  },
+  {
+    "slug": "crash-bandicoot",
+    "title": "Crash Bandicoot",
+    "system": "psx",
+    "rom": "crash-bandicoot.chd",
+    "year": 1996,
+    "publisher": "Sony",
+    "genres": ["Platformer"],
+    "players": 1,
+    "description": "Crash spins through the Wumpa Islands to stop Dr. Neo Cortex."
+  },
+  {
+    "slug": "tekken-3",
+    "title": "Tekken 3",
+    "system": "psx",
+    "rom": "tekken-3.chd",
+    "year": 1998,
+    "publisher": "Namco",
+    "genres": ["Fighting"],
+    "players": 2,
+    "description": "3D fighter with sidestepping, Tekken Force mode and Tekken Ball."
+  },
+
+  {
+    "slug": "bonks-adventure",
+    "title": "Bonk's Adventure",
+    "system": "pce",
+    "rom": "bonks-adventure.pce",
+    "year": 1989,
+    "publisher": "Hudson Soft",
+    "genres": ["Platformer"],
+    "players": 1,
+    "description": "A caveman headbutts dinosaurs in the PC Engine's mascot game."
+  },
+  {
+    "slug": "r-type-pce",
+    "title": "R-Type",
+    "system": "pce",
+    "rom": "r-type.pce",
+    "year": 1988,
+    "publisher": "Hudson Soft",
+    "genres": ["Shooter"],
+    "players": 1,
+    "description": "Port of Irem's horizontal shooter with the detachable Force pod."
+  },
+  {
+    "slug": "blazing-lazers",
+    "title": "Blazing Lazers",
+    "system": "pce",
+    "rom": "blazing-lazers.pce",
+    "year": 1989,
+    "publisher": "Hudson Soft",
+    "genres": ["Shooter"],
+    "players": 1,
+    "description": "Fast vertical shooter with stackable weapon upgrades."
+  },
+
+  {
+    "slug": "pitfall",
+    "title": "Pitfall!",
+    "system": "atari2600",
+    "rom": "pitfall.a26",
+    "year": 1982,
+    "publisher": "Activision",
+    "genres": ["Platformer"],
+    "players": 1,
+    "description": "Pitfall Harry swings over tar pits and crocodiles to collect treasure."
+  },
+  {
+    "slug": "adventure-2600",
+    "title": "Adventure",
+    "system": "atari2600",
+    "rom": "adventure.a26",
+    "year": 1980,
+    "publisher": "Atari",
+    "genres": ["Action-adventure"],
+    "players": 1,
+    "description": "Carry the chalice home past three dragons. It contains the first famous easter egg."
+  },
+  {
+    "slug": "river-raid",
+    "title": "River Raid",
+    "system": "atari2600",
+    "rom": "river-raid.a26",
+    "year": 1982,
+    "publisher": "Activision",
+    "genres": ["Shooter"],
+    "players": 1,
+    "description": "Fly up the river, destroy bridges and don't run out of fuel."
+  }
+]

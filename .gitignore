@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+!.env.example
+
+# playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# your own game files (never commit ROMs or BIOS)
+/public/roms/**
+!/public/roms/**/
+!/public/roms/**/.gitkeep
+/public/bios/**
+!/public/bios/**/
+!/public/bios/**/.gitkeep
