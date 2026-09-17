@@ -18,7 +18,7 @@ test("home → system → search → game detail → play shows missing files", 
   ).toBeVisible();
 
   const cards = page.getByTestId("game-card");
-  await expect(cards).toHaveCount(6);
+  await expect(cards).toHaveCount(7);
 
   // Goes through the debounced catalog saga and GET /api/games.
   await page.getByRole("searchbox").fill("metal");
@@ -51,6 +51,27 @@ test("favorites survive a reload", async ({ page }) => {
   await expect(
     page.getByRole("button", { name: "Remove Super Metroid from favorites" }),
   ).toBeVisible();
+
+  // The IndexedDB write is async; navigating before it lands would drop the favorite.
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () =>
+          new Promise<unknown>((resolve) => {
+            const open = indexedDB.open("insertcoin");
+            open.onsuccess = () => {
+              const request = open.result
+                .transaction("library")
+                .objectStore("library")
+                .get("favorites");
+              request.onsuccess = () => resolve(request.result);
+              request.onerror = () => resolve(null);
+            };
+            open.onerror = () => resolve(null);
+          }),
+      ),
+    )
+    .toEqual(["super-metroid"]);
 
   await page.goto("/favorites");
   await expect(page.getByTestId("game-card")).toHaveCount(1);

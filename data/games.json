@@ -35,6 +35,17 @@
     "description": "Bootleg hack of KOF 2002 with faster gameplay and powered-up special moves. Needs the kof2002 parent set."
   },
   {
+    "slug": "the-king-of-fighters-2002-plus-2017",
+    "title": "The King of Fighters 2002 (Plus 2017, Hack)",
+    "system": "neogeo",
+    "rom": "kf2k2p17.zip",
+    "year": 2020,
+    "publisher": "hack (GSC2007)",
+    "genres": ["Fighting"],
+    "players": 2,
+    "description": "Fan hack of KOF 2002 by GSC2007 with rebalanced characters and extra moves."
+  },
+  {
     "slug": "metal-slug-x",
     "title": "Metal Slug X",
     "system": "neogeo",
