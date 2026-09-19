@@ -18,6 +18,20 @@ export interface EjsGlobals {
   EJS_biosUrl?: string;
   EJS_color?: string;
   EJS_threads?: boolean;
+  /**
+   * Netplay needs all three: the menu is hidden unless debug mode and the
+   * experimental flag are both on, and unless the game has a numeric id that
+   * players match on when they join a room.
+   */
+  EJS_DEBUG_XX?: boolean;
+  EJS_EXPERIMENTAL_NETPLAY?: boolean;
+  EJS_gameID?: number;
+  EJS_netplayServer?: string;
+  /**
+   * Toolbar button visibility. EmulatorJS hides the netplay button by default
+   * (`netplay: { visible: false }`), so it has to be turned on here as well.
+   */
+  EJS_Buttons?: Record<string, boolean>;
 }
 
 export interface EjsSaveStateEvent {
@@ -63,6 +77,11 @@ const GLOBAL_KEYS = [
   "EJS_biosUrl",
   "EJS_color",
   "EJS_threads",
+  "EJS_DEBUG_XX",
+  "EJS_EXPERIMENTAL_NETPLAY",
+  "EJS_gameID",
+  "EJS_netplayServer",
+  "EJS_Buttons",
 ] as const satisfies readonly (keyof EjsGlobals)[];
 
 export function applyEjsGlobals(globals: EjsGlobals): void {

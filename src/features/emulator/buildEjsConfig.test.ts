@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+﻿import { describe, expect, it } from "vitest";
 
 import {
   gba,
@@ -10,7 +10,7 @@ import {
   testEnv,
 } from "@/test/fixtures";
 
-import { buildEjsConfig } from "./buildEjsConfig";
+import { buildEjsConfig, gameIdFromSlug } from "./buildEjsConfig";
 
 describe("buildEjsConfig", () => {
   it("arcade clone: sets the arcade core, parent ROM and required BIOS", () => {
@@ -31,6 +31,11 @@ describe("buildEjsConfig", () => {
       EJS_pathtodata: "https://cdn.emulatorjs.org/stable/data/",
       EJS_color: "#e11d48",
       EJS_threads: undefined,
+      EJS_DEBUG_XX: undefined,
+      EJS_EXPERIMENTAL_NETPLAY: undefined,
+      EJS_gameID: undefined,
+      EJS_netplayServer: undefined,
+      EJS_Buttons: undefined,
     });
     expect(
       files.map(({ kind, location, required }) => ({
@@ -108,5 +113,54 @@ describe("buildEjsConfig", () => {
       "https://files.example.com/roms/snes/super-metroid.sfc",
     );
     expect(globals.EJS_threads).toBe(true);
+  });
+});
+
+describe("netplay", () => {
+  const netplayEnv = {
+    ...testEnv,
+    NEXT_PUBLIC_EJS_NETPLAY: true,
+    NEXT_PUBLIC_EJS_NETPLAY_SERVER: "https://netplay.example.com",
+  };
+
+  it("sets the three globals EmulatorJS needs plus the room server", () => {
+    const { globals } = buildEjsConfig({
+      game: superMetroid,
+      system: snes,
+      env: netplayEnv,
+      player: "#p",
+    });
+
+    expect(globals.EJS_DEBUG_XX).toBe(true);
+    expect(globals.EJS_EXPERIMENTAL_NETPLAY).toBe(true);
+    expect(globals.EJS_gameID).toBe(gameIdFromSlug(superMetroid.slug));
+    expect(globals.EJS_netplayServer).toBe("https://netplay.example.com");
+    // EmulatorJS hides the netplay toolbar button unless it is asked for.
+    expect(globals.EJS_Buttons).toEqual({ netplay: true });
+  });
+
+  it("leaves netplay off by default", () => {
+    const { globals } = buildEjsConfig({
+      game: superMetroid,
+      system: snes,
+      env: testEnv,
+      player: "#p",
+    });
+
+    expect(globals.EJS_DEBUG_XX).toBeUndefined();
+    expect(globals.EJS_gameID).toBeUndefined();
+    expect(globals.EJS_Buttons).toBeUndefined();
+  });
+});
+
+describe("gameIdFromSlug", () => {
+  it("is stable, positive and differs per game", () => {
+    expect(gameIdFromSlug("super-metroid")).toBe(
+      gameIdFromSlug("super-metroid"),
+    );
+    expect(gameIdFromSlug("super-metroid")).toBeGreaterThan(0);
+    expect(gameIdFromSlug("super-metroid")).not.toBe(
+      gameIdFromSlug("metal-slug-x"),
+    );
   });
 });

@@ -27,6 +27,8 @@ interface BuildOptions {
     | "NEXT_PUBLIC_ROM_BASE_URL"
     | "NEXT_PUBLIC_BIOS_BASE_URL"
     | "NEXT_PUBLIC_EJS_THREADS"
+    | "NEXT_PUBLIC_EJS_NETPLAY"
+    | "NEXT_PUBLIC_EJS_NETPLAY_SERVER"
   >;
   player: string;
 }
@@ -83,6 +85,7 @@ export function buildEjsConfig({
     files.find((file) => file.kind === kind)?.url;
 
   const parentUrl = urlOf("parent");
+  const netplay = env.NEXT_PUBLIC_EJS_NETPLAY;
 
   return {
     files,
@@ -100,6 +103,26 @@ export function buildEjsConfig({
       EJS_biosUrl: urlOf("bios"),
       EJS_color: system.accent,
       EJS_threads: env.NEXT_PUBLIC_EJS_THREADS || undefined,
+      EJS_DEBUG_XX: netplay || undefined,
+      EJS_EXPERIMENTAL_NETPLAY: netplay || undefined,
+      EJS_gameID: netplay ? gameIdFromSlug(game.slug) : undefined,
+      EJS_netplayServer: netplay
+        ? env.NEXT_PUBLIC_EJS_NETPLAY_SERVER
+        : undefined,
+      EJS_Buttons: netplay ? { netplay: true } : undefined,
     },
   };
+}
+
+/**
+ * Netplay matches players on a numeric game id, so it has to be the same
+ * number in both browsers. FNV-1a over the slug gives that without a registry.
+ */
+export function gameIdFromSlug(slug: string): number {
+  let hash = 0x811c9dc5;
+  for (let i = 0; i < slug.length; i++) {
+    hash ^= slug.charCodeAt(i);
+    hash = Math.imul(hash, 0x01000193);
+  }
+  return hash >>> 1; // positive, and clear of the sign bit
 }

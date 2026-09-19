@@ -1,4 +1,4 @@
-import { Gamepad2, Users } from "lucide-react";
+import { ArrowLeft, Gamepad2, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -35,9 +35,10 @@ export default async function GamePage({ params }: PageProps<"/games/[slug]">) {
     <div className="space-y-6">
       <Link
         href={`/systems/${system.id}`}
-        className="text-sm text-muted-foreground hover:text-foreground"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
       >
-        ← {system.name}
+        <ArrowLeft className="size-4" aria-hidden />
+        {system.name}
       </Link>
 
       <div className="grid gap-8 md:grid-cols-[minmax(0,22rem)_1fr]">

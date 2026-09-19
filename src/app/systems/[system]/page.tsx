@@ -1,3 +1,4 @@
+import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -38,9 +39,10 @@ export default async function SystemPage({
       <div>
         <Link
           href="/"
-          className="text-sm text-muted-foreground hover:text-foreground"
+          className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
         >
-          ← All systems
+          <ArrowLeft className="size-4" aria-hidden />
+          All systems
         </Link>
         <div className="mt-3 flex items-center gap-3">
           <span

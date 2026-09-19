@@ -93,4 +93,6 @@ export const testEnv = {
   NEXT_PUBLIC_ROM_BASE_URL: "/roms",
   NEXT_PUBLIC_BIOS_BASE_URL: "/bios",
   NEXT_PUBLIC_EJS_THREADS: false,
+  NEXT_PUBLIC_EJS_NETPLAY: false,
+  NEXT_PUBLIC_EJS_NETPLAY_SERVER: undefined,
 };
