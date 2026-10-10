@@ -214,6 +214,17 @@
     "players": 2,
     "description": "Home port with the four new challengers and a tournament mode."
   },
+  {
+    "slug": "super-mario-all-stars",
+    "title": "Super Mario All-Stars",
+    "system": "snes",
+    "rom": "super-mario-all-stars.sfc",
+    "year": 1993,
+    "publisher": "Nintendo",
+    "genres": ["Platformer"],
+    "players": 2,
+    "description": "16-bit remakes of Super Mario Bros. 1, 2, 3 and The Lost Levels on one cartridge."
+  },
 
   {
     "slug": "super-mario-64",
