@@ -143,10 +143,13 @@
     --chrome: 15rem;
     width: min(100%, calc((100dvh - var(--chrome)) * 4 / 3));
   }
-  /* Phones held sideways: the page chrome is what is left over, so claim it back. */
+  /*
+   * Phones held sideways: the page chrome is what is left over, so claim it
+   * back. Pages with a taller header override --chrome-landscape.
+   */
   @media (orientation: landscape) and (max-height: 600px) {
     .emulator-frame {
-      --chrome: 7rem;
+      --chrome: var(--chrome-landscape, 7rem);
     }
   }
   /* Fullscreen: fill the screen, keeping the aspect ratio and dropping the frame. */

@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 import type { Game } from "@/features/catalog/schemas";
 import type { System } from "@/features/systems/schemas";
@@ -52,7 +52,10 @@ export function LegacyPlayer({ game, system }: { game: Game; system: System }) {
     <div className="space-y-3">
       <div
         id={PLAYER_ID}
-        className="aspect-[4/3] w-full overflow-hidden rounded-xl bg-black ring-1 ring-foreground/10"
+        data-emulator-frame
+        // This page's header (back link, title, subtitle) is taller than /play's.
+        style={{ "--chrome-landscape": "12rem" } as CSSProperties}
+        className="emulator-frame mx-auto aspect-[4/3] overflow-hidden rounded-xl bg-black ring-1 ring-foreground/10"
       />
       {status === "error" && (
         <p role="alert" className="text-sm text-destructive">
