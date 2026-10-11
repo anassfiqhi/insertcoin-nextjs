@@ -62,7 +62,10 @@ export function EmulatorPlayer({ slug }: { slug: string }) {
   const showPlayer = status === "loading" || status === "running";
 
   return (
-    <div className="scanlines relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-black ring-1 ring-foreground/10">
+    <div
+      data-emulator-frame
+      className="emulator-frame scanlines relative mx-auto aspect-[4/3] overflow-hidden rounded-xl bg-black ring-1 ring-foreground/10"
+    >
       {/* EmulatorJS owns everything inside this node. React never renders children into it. */}
       <div
         id={PLAYER_ID}

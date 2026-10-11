@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, Keyboard } from "lucide-react";
+import { ArrowLeft, Keyboard, Maximize } from "lucide-react";
 import dynamic from "next/dynamic";
 
 import { Button } from "@/components/ui/button";
@@ -19,28 +19,54 @@ const EmulatorPlayer = dynamic(
   },
 );
 
+/** Screen orientation lock, which only some mobile browsers implement. */
+type OrientationLock = ScreenOrientation & {
+  lock?: (orientation: "landscape") => Promise<void>;
+};
+
+async function goFullscreen() {
+  const frame = document.querySelector<HTMLElement>("[data-emulator-frame]");
+  if (!frame?.requestFullscreen) return;
+
+  try {
+    await frame.requestFullscreen();
+    // Phones are usually held upright, but the games are landscape.
+    await (screen.orientation as OrientationLock)?.lock?.("landscape");
+  } catch {
+    // Fullscreen was refused, or the browser has no orientation lock. Either is fine.
+  }
+}
+
 export function PlayView({ game, system }: { game: Game; system: System }) {
   return (
     <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
-      <div className="space-y-4">
+      {/* min-w-0: without it the grid column grows to fit the title row and the page scrolls sideways on phones. */}
+      <div className="min-w-0 space-y-4">
         <div className="flex items-center justify-between gap-4">
           <div className="min-w-0">
             <h1 className="truncate text-xl font-semibold">{game.title}</h1>
             <p className="text-sm text-muted-foreground">{system.name}</p>
           </div>
-          <Button
-            variant="outline"
-            // A full page load is the only way to stop EmulatorJS cleanly, so router.push isn't used here.
-            // eslint-disable-next-line @next/next/no-location-assign-relative-destination
-            onClick={() => window.location.assign(`/games/${game.slug}`)}
-          >
-            <ArrowLeft aria-hidden /> Exit
-          </Button>
+          <div className="flex shrink-0 items-center gap-2">
+            <Button variant="outline" onClick={goFullscreen}>
+              <Maximize aria-hidden />
+              <span className="sr-only sm:not-sr-only">Fullscreen</span>
+            </Button>
+            <Button
+              variant="outline"
+              // A full page load is the only way to stop EmulatorJS cleanly, so router.push isn't used here.
+              // eslint-disable-next-line @next/next/no-location-assign-relative-destination
+              onClick={() => window.location.assign(`/games/${game.slug}`)}
+            >
+              <ArrowLeft aria-hidden />
+              <span className="sr-only sm:not-sr-only">Exit</span>
+            </Button>
+          </div>
         </div>
         <EmulatorPlayer slug={game.slug} />
       </div>
 
-      <aside className="space-y-4">
+      <aside className="min-w-0 space-y-4">
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2 font-pixel text-xs">

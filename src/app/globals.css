@@ -134,6 +134,28 @@
 }
 
 @layer components {
+  /*
+   * A 4:3 screen that is as wide as it can be without pushing its own height
+   * past the viewport. --chrome is the space the rest of the page needs
+   * (header, title row, padding), so the player never has to be scrolled to.
+   */
+  .emulator-frame {
+    --chrome: 15rem;
+    width: min(100%, calc((100dvh - var(--chrome)) * 4 / 3));
+  }
+  /* Phones held sideways: the page chrome is what is left over, so claim it back. */
+  @media (orientation: landscape) and (max-height: 600px) {
+    .emulator-frame {
+      --chrome: 7rem;
+    }
+  }
+  /* Fullscreen: fill the screen, keeping the aspect ratio and dropping the frame. */
+  .emulator-frame:fullscreen {
+    width: min(100vw, calc(100dvh * 4 / 3));
+    border-radius: 0;
+    --tw-ring-shadow: 0 0 #0000;
+  }
+
   /* Faint CRT scanlines over a surface. */
   .scanlines {
     position: relative;
